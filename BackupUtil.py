@@ -42,8 +42,8 @@ def find_LuaCs_mods(modslocation):
     configfilespathfrommodslocation = []
     for moddir in dir_list:
         if os.path.isdir(os.path.join(modslocation, moddir)):
-            moddir_x = os.path.join(modslocation, moddir)
-            insidemoddir = os.listdir(moddir_x)
+            moddir_base_path = os.path.join(modslocation, moddir)
+            insidemoddir = os.listdir(moddir_base_path)
             if "Lua" in insidemoddir or "CSharp" in insidemoddir:
                 # search in root
                 for item in insidemoddir:
@@ -61,7 +61,7 @@ def find_LuaCs_mods(modslocation):
                                             configfilespathfrommodslocation.append(config_file)
             if "Lua" in insidemoddir:
                 # search in lua
-                moddir_x = os.path.join(moddir_x, "Lua")
+                moddir_x = os.path.join(moddir_base_path, "Lua")
                 insidemoddir_x = os.listdir(moddir_x)
                 for item in insidemoddir_x:
                     if config_files_find(item):
@@ -78,7 +78,7 @@ def find_LuaCs_mods(modslocation):
                                             configfilespathfrommodslocation.append(config_file)
             if "CSharp" in insidemoddir:
                 # search in CSharp
-                moddir_x = os.path.join(moddir_x, "CSharp")
+                moddir_x = os.path.join(moddir_base_path, "CSharp")
                 insidemoddir_x = os.listdir(moddir_x)
                 for item in insidemoddir_x:
                     if config_files_find(item):

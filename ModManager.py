@@ -5,8 +5,8 @@ import os
 # CONFIGURATION if you dont wanna use arguments:
 default_barotrauma_path = os.getcwd()
 default_tool_path = os.path.dirname(sys.argv[0])
-default_steamcmd_path = "steamcmd"
-default_steamdir_path = "/home/milord/testdirectory/steamdir"
+default_steamcmd_path = ""
+default_steamdir_path = ""
 default_addperformancefix = False
 
 # debug
@@ -861,7 +861,7 @@ def modmanager(user_perfs):
             for mod in modlist:
                 if mod['id'] in blkls_arr:
                     modlist_cpy.pop(mod)
-            modlist = modlist_cpn
+            modlist = modlist_cpy
                     
                 
 

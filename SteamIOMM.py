@@ -297,7 +297,7 @@ def download_modlist(modlist, steamdir_path, location_with_steamcmd):
                 mod['type'] = "Local"
         if mod['type'] == "Workshop":
             if 'file_size' in mod:
-                modlist_file_size += mod['file_size']
+                modlist_file_size += int(mod['file_size'])
             modlist_workshop.append(mod)
         else:
             print(_("[ModManager] Skipped mod!: {name:s} ({id:s})").format(**mod))
@@ -360,7 +360,7 @@ def download_modlist(modlist, steamdir_path, location_with_steamcmd):
                 iterator += 1
                 # bar.update(1)
                 if 'file_size' in mod:
-                    completed_file_size += mod['file_size']
+                    completed_file_size += int(mod['file_size'])
                 one_time -= int(round(time.time()))
                 total_time += one_time
                 print()
